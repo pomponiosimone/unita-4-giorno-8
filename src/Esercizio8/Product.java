@@ -1,15 +1,15 @@
 package Esercizio8;
 
 public class Product {
-    private final String name;
     //attributi
-    private Long id;
+    private String name;
+    private long id;
     private String category;
-    private Double price;
+    private double price;
 
     //constructor
 
-    public Product(Long id, String name, String category, Double price) {
+    public Product(long id, String name, String category, double price) {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -30,7 +30,7 @@ public class Product {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -46,7 +46,22 @@ public class Product {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
+
+    public void Sconto(double percentuale) {
+        this.price = this.price * (1 - percentuale / 100);
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
+

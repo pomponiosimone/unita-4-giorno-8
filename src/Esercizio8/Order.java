@@ -2,16 +2,17 @@ package Esercizio8;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Order {
-    private Long id;
+    private long id;
     private String status;
     private LocalDate orderDate;
     private LocalDate deliveryDate;
     private List<Product> products;
     private Customer customer;
 
-    public Order(Long id, String status, LocalDate orderDate, LocalDate deliveryDate, List<Product> products, Customer customer) {
+    public Order(long id, String status, LocalDate orderDate, LocalDate deliveryDate, List<Product> products, Customer customer) {
         this.id = id;
         this.status = status;
         this.orderDate = orderDate;
@@ -25,7 +26,7 @@ public class Order {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -68,4 +69,22 @@ public class Order {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    @Override
+    public String toString() {
+
+        String productsDetails = products.stream()
+                .map(Product::toString)
+                .collect(Collectors.joining(", "));
+
+        return "Order{" +
+                "id=" + id +
+                ", status='" + status + '\'' +
+                ", orderDate=" + orderDate +
+                ", deliveryDate=" + deliveryDate +
+                ", products=[" + productsDetails + "]" +
+                ", customer=" + customer +
+                '}';
+    }
 }
+

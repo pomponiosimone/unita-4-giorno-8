@@ -1,24 +1,23 @@
 package Esercizio8;
 
 public class Customer {
-    private Long id;
+    private long id;
     private String name;
     private Integer tier;
 
-
-    // constructor
-    public Customer(Long id, String name, Integer tier) {
+    // Costruttore
+    public Customer(long id, String name, Integer tier) {
         this.id = id;
         this.name = name;
         this.tier = tier;
     }
 
-    // getters  setters
-    public Long getId() {
+    // Getter e Setter
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -37,5 +36,13 @@ public class Customer {
     public void setTier(Integer tier) {
         this.tier = tier;
     }
-}
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", tier=" + tier +
+                '}';
+    }
+}
