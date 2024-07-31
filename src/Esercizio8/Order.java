@@ -2,7 +2,6 @@ package Esercizio8;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Order {
     private long id;
@@ -72,17 +71,12 @@ public class Order {
 
     @Override
     public String toString() {
-
-        String productsDetails = products.stream()
-                .map(Product::toString)
-                .collect(Collectors.joining(", "));
-
         return "Order{" +
                 "id=" + id +
                 ", status='" + status + '\'' +
                 ", orderDate=" + orderDate +
                 ", deliveryDate=" + deliveryDate +
-                ", products=[" + productsDetails + "]" +
+                ", products=" + products +
                 ", customer=" + customer +
                 '}';
     }
